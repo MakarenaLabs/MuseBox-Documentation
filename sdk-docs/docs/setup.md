@@ -10,7 +10,7 @@ MuseBox Server is provided as an executable file present in `/usr/local/bin`, ca
 
 ## Step 1: PYNQ installation
 
-To install PYNQ on a Kria board you can simply use the provided PRM package with the follwing command:
+To install PYNQ you can simply use the provided PRM package with the follwing command:
 ```bash
 dnf install pynq-2.7-1.fc30.noarch.rpm
 ```
