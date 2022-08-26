@@ -1,0 +1,16 @@
+site_name: SDK Documentation
+use_directory_urls: true
+nav:
+  - Home: 
+    - Introduction: 'index.md'
+    - Setup: 'setup.md'
+    - API overview: 'api/general'
+    - Example C++: 'api/cpp'
+    - Example Python: 'api/python'
+    - Generation from NoCode (experimental): 'api/nocode'
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  
+theme: readthedocs
