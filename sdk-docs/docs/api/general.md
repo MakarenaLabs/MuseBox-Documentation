@@ -68,6 +68,7 @@ All the APIs are in JSON format, and have the same structure. The structure is t
 }
 ```
 Where:
+
 - "topic" is the name of the Machine Learning task
 - "image" is the OpenCV image in base64 format (string encoded in UTF8)
 - "imageHeight" is the height of the current image
