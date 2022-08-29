@@ -98,6 +98,7 @@ The MuseBox server response structure is the following:
 }
 ```
 Where:
+
 - "execution_time" is the inference time on FPGA
 - "publisherQueue" is the same string that the Client sent previously
 - "status" is the status of the request (success / error)
