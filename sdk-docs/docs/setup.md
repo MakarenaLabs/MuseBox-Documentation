@@ -37,7 +37,7 @@ Once the DPU file is located in the right directory, you can copy your `license.
 
 ## License request
 
-In order to obtain the license, you need to request the node locker license. The license is valid for a specific board, composed by a specific internal ID, MAC address and SD Card/MMC ID, so you cannot use the license on a different node. 
+In order to obtain the license, you need to request the node locker license. The license is valid for a specific board, so you cannot use the license on a different node. 
 
 For the license request, you need to create the license request file. To do that, simply run this command:
 
