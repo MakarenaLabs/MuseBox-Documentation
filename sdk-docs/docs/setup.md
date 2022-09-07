@@ -10,12 +10,12 @@ MuseBox Server is provided as an executable file present in `/usr/local/bin`, ca
 
 ## Step 1: PYNQ installation
 
-To install PYNQ you can simply use the provided PRM package with the follwing command:
+To install PYNQ you can simply use the provided RPM package with the follwing command:
 ```bash
 dnf install pynq-2.7-1.fc30.noarch.rpm
 ```
 
-After that, to apply all changes you have to reboot the board and wait a couple of seconds before start using PYNQ on Kria board. Jupyter notebooks are available on `9090` port, so you can reach them using the URL `http://board_ip:9090`.
+After that, to apply all changes **you have to reboot the board and wait a couple of seconds before start using PYNQ on Kria board**. Jupyter notebooks are available on `9090` port, so you can reach them using the URL `http://board_ip:9090`.
 
 ## Step 2: MuseBox server installation
 
@@ -31,7 +31,7 @@ First of all, you need to check if the file `dpu.xclbin` is visible to the syste
 mkdir -p /media/sd-mmcblk0p1/
 ln -s /run/media/mmcblk1p1/dpu.xclbin /media/sd-mmcblk0p1/
 ```
-At your discretion, you can also copy the file in the directory, instead of link it (you have to change the `ln -s` command with the `cp` one).
+At your discretion, you can also copy the file in the directory, instead of linking it (you have to change the `ln -s` command with the `cp` one).
 
 Once the DPU file is located in the right directory, you can copy your `license.lic` file inside the MuseBox Server installation directory (`/usr/local/bin`).
 
@@ -39,9 +39,9 @@ Once the DPU file is located in the right directory, you can copy your `license.
 
 In order to obtain the license, you need to request the node locker license. The license is valid for a specific board, composed by a specific internal ID, MAC address and SD Card/MMC ID, so you cannot use the license on a different node. 
 
-For the license request, you need to create the license request file. For doing that, simply run this command:
+For the license request, you need to create the license request file. To do that, simply run this command:
 
-`/usr/local/bin/request_license`
+`/usr/local/bin/license_request`
 
 This command generates the file `license_request.req` in the path `/usr/local` . You need to send to us the file via email at `staff@makarenalabs.com` with the subject `MuseBox License request` .
 Our internal system will check if the email is associated to a valid customer, then, according to your signed contract, the system will respond to you with the license file, called `license.lic` .

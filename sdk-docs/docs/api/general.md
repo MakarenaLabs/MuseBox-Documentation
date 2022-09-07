@@ -7,19 +7,17 @@ Every MuseBox Server implementation has a common API based on [ZeroMQ](https://z
 The communication is based on the Publish - Subscribe classic pattern. 
 The Senders of messages, called publishers (in our case, we can call it "MuseBox Client"), do not program the messages to be sent directly to specific receivers, called subscribers. Messages are published without the knowledge of what or if any subscriber of that knowledge exists.
 
-When MuseBox starts, exposes its communication socket as a Subscriber. When it receives a message from a MuseBox Client, it responds to the Publisher to the socket that the MuseBox Client exposes. In order to to that, the MuseBox Client send to the MuseBox Server message the address where it expects to receive the answer.
+When MuseBox starts, it exposes its communication socket as a Subscriber. When it receives a message from a MuseBox Client, it responds to the Publisher at the socket that the MuseBox Client exposes. In order to do that, the MuseBox Client sends to the MuseBox Server in the message the address where it expects to receive the answer.
 The payload of the message is in JSON format.
 
 Let's see this example:
 
-- A MuseBox Client send this message to the MuseBox Server:
+- A MuseBox Client sends this message to the MuseBox Server:
 
 ```
 {
     "topic": "FaceDetection",
     "image": [...],
-    "imageHeight": 250,
-    "imageWidth": 250,
     "publisherQueue": "tcp://*:5000"
 }
 ```
@@ -39,7 +37,6 @@ Let's see this example:
                     }
             }
         ],
-    "execution_time":4.957312,
     "publisherQueue":"tcp://*:5000",
     "status":"success",
     "topic": "FaceDetection"
@@ -62,8 +59,6 @@ All the APIs are in JSON format, and have the same structure. The structure is t
     "topic": <string>,
     "only_face": <bool>,
     "image": <base64 image>,
-    "imageHeight": <int>,
-    "imageWidth": <int>,
     "publisherQueue": <string>
 }
 ```
@@ -71,8 +66,6 @@ Where:
 
 - "topic" is the name of the Machine Learning task
 - "image" is the OpenCV image in base64 format (string encoded in UTF8)
-- "imageHeight" is the height of the current image
-- "imageWidth" is the width of the current image
 - "publisherQueue" is the address where the Client expects to receive the response
 - "only_face" (optional) if you want to execute only the selected task and not the dependent tasks. For example: if you want to execute the face recognition task, you need to execute before that the face detection for extracting the sub-image that contains the face of the person that you want to recognize; with `only_face: true` you are sure that the passed image contains only the cropped face, meanwhile without the field `only_face`, MuseBox Server executes face detection and face recognition.
 
@@ -91,7 +84,6 @@ The MuseBox server response structure is the following:
                     }
             }
         ],
-    "execution_time": <double>,
     "publisherQueue": <string>,
     "status": <string>,
     "topic": <string>
@@ -99,7 +91,6 @@ The MuseBox server response structure is the following:
 ```
 Where:
 
-- "execution_time" is the inference time on FPGA
 - "publisherQueue" is the same string that the Client sent previously
 - "status" is the status of the request (success / error)
 - "topic" is the requested inference task
@@ -408,7 +399,7 @@ Response from Server:
 
 Given a logo bounding box, it determines the brand name
 
-You need to populate the directory `/usr/local/bin/database/logo` with the photos of the desired logos.
+You need to populate the directory `/usr/local/bin/database/logos` with the photos of the desired logos.
 
 Request from Client:
 ```
