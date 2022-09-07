@@ -41,7 +41,7 @@ In order to obtain the license, you need to request the node locker license. The
 
 For the license request, you need to create the license request file. To do that, simply run this command:
 
-`/usr/local/bin/license_request`
+`license_request`
 
 This command generates the file `license_request.req` in the path `/usr/local` . You need to send to us the file via email at `staff@makarenalabs.com` with the subject `MuseBox License request` .
 Our internal system will check if the email is associated to a valid customer, then, according to your signed contract, the system will respond to you with the license file, called `license.lic` .
