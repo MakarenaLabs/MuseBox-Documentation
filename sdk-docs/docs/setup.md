@@ -1,12 +1,22 @@
 # Setup
 
-MuseBox Server is provided as an executable file present in `/usr/local/bin`, called `MuseBoxServer`.
+MuseBox Server is provided as an executable file.
+
+If you will use the pre-built image, the executable file is in `~/makarenalabs/musebox-demo` called `MuseBox`. 
+
+If you will install MuseBox on your petalinux image, the executable file is in `/usr/local/bin`, called `MuseBoxServer`.
+
+# Pre-built image
+If you want to use the pre-built image, you only need to flash the image on a SD card with common image burner. We suggest BalenaEtcher as SD image burner.
+
+
+# Installation on your Petalinux image
+If you want to install MuseBox on top of your current petalinux image, follow those steps
 
 ## Prerequisites
  - Petalinux 2021.1 image
  - PYNQ v2.7 (following steps)
  - Valid license provided by MakarenaLabs SRL
-
 
 ## Step 1: PYNQ installation
 
@@ -35,7 +45,7 @@ At your discretion, you can also copy the file in the directory, instead of link
 
 Once the DPU file is located in the right directory, you can copy your `license.lic` file inside the MuseBox Server installation directory (`/usr/local/bin`).
 
-## License request
+# License request
 
 In order to obtain the license, you need to request the node locker license. The license is valid for a specific board, composed by a specific internal ID, MAC address and SD Card/MMC ID, so you cannot use the license on a different node. 
 
