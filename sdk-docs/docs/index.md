@@ -2,7 +2,7 @@
 
 Welcome to MuseBox Server Documentation!
 
-![MuseBox logo](/assets/images/MuseBox-logo.png){ width="250" }
+![MuseBox logo](https://musebox.it/wp-content/uploads/2022/05/musebox-logo.jpg){ width="250" }
 
 
 [MuseBox](https://musebox.it) is a set of AI and Machine Learning models designed for extracting analytics out of a video or audio or audio/video source. MuseBox supports different workloads from edge AI inference to large datacenter AI inference tasks.
@@ -17,7 +17,7 @@ MuseBox currently supports 5 different categories of AI tasks:
 
 MuseBox runs on Zynq7000, Zynq Ultrascale+ MPSoC, ALVEO and VERSAL platforms.
 
-![MuseBox Core](/assets/images/MuseBox core.png)
+![MuseBox Core](https://musebox.it/wp-content/uploads/2023/02/MuseBox-core.png)
 
 
 [AMD Xilinx Solution Brief](https://www.xilinx.com/publications/solution-briefs/partner/musebox-solution-brief.pdf)
