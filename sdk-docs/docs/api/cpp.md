@@ -75,11 +75,16 @@ int main(int argc, char *argv[]) {
 
     // Check topic
     std::vector<std::string> valid_topics { "FaceDetection", "FaceRecognition", "FaceLandmark", "EyeBlink", 
-    "AgeDetection", "GenderDetection", "GlassesDetection", "EmotionRecognition", "TextDetection", "LogoDetection" };
+    "AgeDetection", "GenderDetection", "GlassesDetection", "EmotionRecognition", "TextDetection", "LogoDetection", 
+    "LogoRecognition", "PeopleDetection", "ObjectDetection" };
     // For face recognition the database is located on /usr/local/bin/database/people
+    // For logo recognition the database is located on /usr/local/bin/database/logos
     
     if(!(std::find(std::begin(valid_topics), std::end(valid_topics), argv[1]) != valid_topics.end())){
         std::cout << "The topic is not valid." << std::endl;
+        std::cout << "Valid topics: FaceDetection, FaceRecognition, FaceLandmark, EyeBlink, "
+                "AgeDetection, GenderDetection, GlassesDetection, EmotionRecognition, TextDetection, LogoDetection, "
+                "LogoRecognition, PeopleDetection, ObjectDetection" << std::endl;
         return -1;
     }
 
