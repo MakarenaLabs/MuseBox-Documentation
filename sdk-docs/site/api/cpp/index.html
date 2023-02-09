@@ -175,11 +175,16 @@ int main(int argc, char *argv[]) {
 
     // Check topic
     std::vector&lt;std::string&gt; valid_topics { &quot;FaceDetection&quot;, &quot;FaceRecognition&quot;, &quot;FaceLandmark&quot;, &quot;EyeBlink&quot;, 
-    &quot;AgeDetection&quot;, &quot;GenderDetection&quot;, &quot;GlassesDetection&quot;, &quot;EmotionRecognition&quot;, &quot;TextDetection&quot;, &quot;LogoDetection&quot; };
+    &quot;AgeDetection&quot;, &quot;GenderDetection&quot;, &quot;GlassesDetection&quot;, &quot;EmotionRecognition&quot;, &quot;TextDetection&quot;, &quot;LogoDetection&quot;, 
+    &quot;LogoRecognition&quot;, &quot;PeopleDetection&quot;, &quot;ObjectDetection&quot; };
     // For face recognition the database is located on /usr/local/bin/database/people
+    // For logo recognition the database is located on /usr/local/bin/database/logos
 
     if(!(std::find(std::begin(valid_topics), std::end(valid_topics), argv[1]) != valid_topics.end())){
         std::cout &lt;&lt; &quot;The topic is not valid.&quot; &lt;&lt; std::endl;
+        std::cout &lt;&lt; &quot;Valid topics: FaceDetection, FaceRecognition, FaceLandmark, EyeBlink, &quot;
+                &quot;AgeDetection, GenderDetection, GlassesDetection, EmotionRecognition, TextDetection, LogoDetection, &quot;
+                &quot;LogoRecognition, PeopleDetection, ObjectDetection&quot; &lt;&lt; std::endl;
         return -1;
     }
 

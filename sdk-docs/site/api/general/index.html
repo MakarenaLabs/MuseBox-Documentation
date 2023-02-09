@@ -147,17 +147,15 @@
 Every MuseBox Server implementation has a common API based on <a href="https://zeromq.org/">ZeroMQ</a> (aka ZMQ or ØMQ or 0MQ), an embedded library for queue-based communication stack.</p>
 <p>The communication is based on the Publish - Subscribe classic pattern. 
 The Senders of messages, called publishers (in our case, we can call it "MuseBox Client"), do not program the messages to be sent directly to specific receivers, called subscribers. Messages are published without the knowledge of what or if any subscriber of that knowledge exists.</p>
-<p>When MuseBox starts, exposes its communication socket as a Subscriber. When it receives a message from a MuseBox Client, it responds to the Publisher to the socket that the MuseBox Client exposes. In order to to that, the MuseBox Client send to the MuseBox Server message the address where it expects to receive the answer.
+<p>When MuseBox starts, it exposes its communication socket as a Subscriber. When it receives a message from a MuseBox Client, it responds to the Publisher at the socket that the MuseBox Client exposes. In order to do that, the MuseBox Client sends to the MuseBox Server in the message the address where it expects to receive the answer.
 The payload of the message is in JSON format.</p>
 <p>Let's see this example:</p>
 <ul>
-<li>A MuseBox Client send this message to the MuseBox Server:</li>
+<li>A MuseBox Client sends this message to the MuseBox Server:</li>
 </ul>
 <pre><code>{
     &quot;topic&quot;: &quot;FaceDetection&quot;,
     &quot;image&quot;: [...],
-    &quot;imageHeight&quot;: 250,
-    &quot;imageWidth&quot;: 250,
     &quot;publisherQueue&quot;: &quot;tcp://*:5000&quot;
 }
 </code></pre>
@@ -178,7 +176,6 @@ The payload of the message is in JSON format.</p>
                     }
             }
         ],
-    &quot;execution_time&quot;:4.957312,
     &quot;publisherQueue&quot;:&quot;tcp://*:5000&quot;,
     &quot;status&quot;:&quot;success&quot;,
     &quot;topic&quot;: &quot;FaceDetection&quot;
@@ -195,8 +192,6 @@ The payload of the message is in JSON format.</p>
     &quot;topic&quot;: &lt;string&gt;,
     &quot;only_face&quot;: &lt;bool&gt;,
     &quot;image&quot;: &lt;base64 image&gt;,
-    &quot;imageHeight&quot;: &lt;int&gt;,
-    &quot;imageWidth&quot;: &lt;int&gt;,
     &quot;publisherQueue&quot;: &lt;string&gt;
 }
 </code></pre>
@@ -204,8 +199,6 @@ The payload of the message is in JSON format.</p>
 <ul>
 <li>"topic" is the name of the Machine Learning task</li>
 <li>"image" is the OpenCV image in base64 format (string encoded in UTF8)</li>
-<li>"imageHeight" is the height of the current image</li>
-<li>"imageWidth" is the width of the current image</li>
 <li>"publisherQueue" is the address where the Client expects to receive the response</li>
 <li>"only_face" (optional) if you want to execute only the selected task and not the dependent tasks. For example: if you want to execute the face recognition task, you need to execute before that the face detection for extracting the sub-image that contains the face of the person that you want to recognize; with <code>only_face: true</code> you are sure that the passed image contains only the cropped face, meanwhile without the field <code>only_face</code>, MuseBox Server executes face detection and face recognition.</li>
 </ul>
@@ -223,7 +216,6 @@ The payload of the message is in JSON format.</p>
                     }
             }
         ],
-    &quot;execution_time&quot;: &lt;double&gt;,
     &quot;publisherQueue&quot;: &lt;string&gt;,
     &quot;status&quot;: &lt;string&gt;,
     &quot;topic&quot;: &lt;string&gt;
@@ -231,7 +223,6 @@ The payload of the message is in JSON format.</p>
 </code></pre>
 <p>Where:</p>
 <ul>
-<li>"execution_time" is the inference time on FPGA</li>
 <li>"publisherQueue" is the same string that the Client sent previously</li>
 <li>"status" is the status of the request (success / error)</li>
 <li>"topic" is the requested inference task</li>
@@ -486,7 +477,7 @@ For example, Face Recognition without <code>only_face: true</code>:</p>
 </ul>
 <h4 id="logo-recognition"><strong>Logo Recognition</strong></h4>
 <p>Given a logo bounding box, it determines the brand name</p>
-<p>You need to populate the directory <code>/usr/local/bin/database/logo</code> with the photos of the desired logos.</p>
+<p>You need to populate the directory <code>/usr/local/bin/database/logos</code> with the photos of the desired logos.</p>
 <p>Request from Client:</p>
 <pre><code>&quot;topic&quot;: &quot;LogoRecognition&quot;
 &quot;only_face&quot;?: true
