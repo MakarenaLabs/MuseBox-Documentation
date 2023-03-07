@@ -2,7 +2,17 @@
 
 ## The Theory
 MuseBox Server works via asynchronous messaging API based on different protocols.
-Every MuseBox Server implementation has a common API based on [ZeroMQ](https://zeromq.org/) (aka ZMQ or ØMQ or 0MQ), an embedded library for queue-based communication stack.
+Every MuseBox Server implementation has an API system that supports 2  protocols:
+- [ZeroMQ](https://zeromq.org/) (aka ZMQ or ØMQ or 0MQ), an embedded library for queue-based communication stack.
+- [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API), a standard two-way interactive communication protocol
+
+You can choose the communication protocol when you will start the MuseBox server, you simply pass to the second parameter of the executable the protocol (`zmq` or `websocket`). For example:
+
+```
+./MuseBoxAudio websocket
+```
+
+If you need a point-to-point communication with 1 client or you have a web-based client, it is preferrable the WebSocket communication, otherwise is preferrable ZeroMQ. The message payload is the same in both protocols.
 
 The communication is based on the Publish - Subscribe classic pattern. 
 The Senders of messages, called publishers (in our case, we can call it "MuseBox Client"), do not program the messages to be sent directly to specific receivers, called subscribers. Messages are published without the knowledge of what or if any subscriber of that knowledge exists.
@@ -21,7 +31,7 @@ Let's see this example:
     "publisherQueue": "tcp://*:5000"
 }
 ```
-- the MuseBox Server receives the message, and according to the field "publisherQueue", will open a socket to the address `tcp://*:5000` and will send the response there.
+- the MuseBox Server receives the message. If the selected protocol is zeromq, according to the field "publisherQueue" will open a socket to the address `tcp://*:5000` and will send the response there.
 - the MuseBox Server sends the reponse to the MuseBox Client: 
 ```
 {
@@ -50,7 +60,10 @@ Let's see this example:
 
 ## APIs
 
-The MuseBox Server listens in localhost (127.0.0.1) at port 9696 in TCP protocol. According to that, in ZMQ socket binding, the Client will bind at this address for sending data to MuseBox Server: `tcp://*:9696`
+The MuseBox Server listens in localhost (127.0.0.1) and in any IP (0.0.0.0) at port 9696.
+
+In WebSocket binding, the client simply must open a connection to `127.0.0.1:9696`, otherwise if the client is extern to the board, the connection string depends on the board's IP. For example, if the board has the IP `192.168.1.5`, the connection string is `192.168.1.5:9696`.
+In ZMQ socket binding, the Client will bind at this address for sending data to MuseBox Server: `tcp://*:9696`
 
 All the APIs are in JSON format, and have the same structure. The structure is the following:
 

@@ -1,50 +1,12 @@
 # Python Example
 
-This example is available on the following link: [https://s3.eu-central-1.wasabisys.com/musebox/musebox-client-examples-1.0.0.zip](https://s3.eu-central-1.wasabisys.com/musebox/musebox-client-examples-1.0.0.zip)
+The Python example is available on Github:
+https://github.com/MakarenaLabs/MuseBox-client-examples/tree/main/Python
 
-```
-import cv2
-import zmq
-import numpy as np
-import json
-import base64
+There are 3 example:
 
-def main():
-    # open camera
-    context = zmq.Context()
-    socket = context.socket(zmq.PUB)
-    try:
-        socket.bind("tcp://*:9696")
-    except zmq.error.ZMQError as e:
-        print(e)
-        
-    socket2 = context.socket(zmq.SUB)
-    socket2.connect("tcp://127.0.0.1:5556")
-    socket2.setsockopt_string(zmq.SUBSCRIBE, str(''))
+- a python script (`musebox_client.py`) that implements a MuseBox client based on zmq communication (like the C++ example)
 
-    message = {
-        "topic": "FaceDetection",
-        "clientId": "1",
-        "publisherQueue": "tcp://*:5556"
-    }
+- a python script (`musebox_client.py`) that implements a MuseBox client based on websocket communication (like the C++ example)
 
-    camera = cv2.VideoCapture(0)
-    while True:
-        # Capture the video frame
-        ret, frame = camera.read()
-        ret, image = cv2.imencode('.png', frame)
-        encoded = base64.b64encode(image)
-        message["image"] = str(encoded, "utf-8")
-        socket.send_string(json.dumps(message))
-        
-        # waiting for response from server
-        message = json.loads(socket2.recv())
-        print(message)
-
-    # After the loop release the cap object
-    camera.release()
-
-
-if __name__ == '__main__':
-    main()
-```
+- a jupyter notebook script (`client.ipynb`) that implements a MuseBox client based on zmq communication  
