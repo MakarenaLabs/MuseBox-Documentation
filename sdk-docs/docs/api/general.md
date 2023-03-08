@@ -3,8 +3,11 @@
 ## The Theory
 MuseBox Server works via asynchronous messaging API based on different protocols.
 Every MuseBox Server implementation has an API system that supports 2  protocols:
+
 - [ZeroMQ](https://zeromq.org/) (aka ZMQ or ØMQ or 0MQ), an embedded library for queue-based communication stack.
+
 - [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API), a standard two-way interactive communication protocol
+
 
 You can choose the communication protocol when you will start the MuseBox server, you simply pass to the second parameter of the executable the protocol (`zmq` or `websocket`). For example:
 
@@ -31,7 +34,9 @@ Let's see this example:
     "publisherQueue": "tcp://*:5000"
 }
 ```
+
 - the MuseBox Server receives the message. If the selected protocol is zeromq, according to the field "publisherQueue" will open a socket to the address `tcp://*:5000` and will send the response there.
+
 - the MuseBox Server sends the reponse to the MuseBox Client: 
 ```
 {
@@ -105,9 +110,13 @@ The MuseBox server response structure is the following:
 Where:
 
 - "publisherQueue" is the same string that the Client sent previously
+
 - "status" is the status of the request (success / error)
+
 - "topic" is the requested inference task
+
 - "data" is the inference result in JSON Array, where:
+
   - "\<topic>_BB" is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)
 
 NB: if the selected task has dependent tasks (e.g. Face Recognition requires Face Detection) and you have not setted `only_face: true`, the field "data" contains all the dependent task executed.
@@ -359,6 +368,7 @@ Response from Server:
         ],
 }
 ```
+
 - people_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)
 
 
@@ -382,6 +392,7 @@ Response from Server:
         ],
 }
 ```
+
 - image is an array of doubles that creates the mask to be applied on top of the original image 
 
 * * *
@@ -407,6 +418,7 @@ Response from Server:
         ],
 }
 ```
+
 - image is an array of doubles that creates a black and white portrait image
 
 * * *
@@ -439,6 +451,7 @@ Response from Server:
         ],
 }
 ```
+
 - object_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)
 
 #### **Logo detection**
@@ -467,6 +480,7 @@ Response from Server:
         ],
 }
 ```
+
 - object_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)
 
 
@@ -494,6 +508,7 @@ Response from Server:
         ]
 }
 ```
+
 - logoFound corresponds to the name of the logo
 
 
@@ -524,6 +539,7 @@ Response from Server:
         ]
 }
 ```
+
 - text_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)
 
 
@@ -549,6 +565,7 @@ Response from Server:
         ],
 }
 ```
+
 - image is an array of doubles that represents the depth estimation of the input
 
 * * *
@@ -573,6 +590,7 @@ Response from Server:
         ],
 }
 ```
+
 - image is an array of doubles that represents the depth estimation of the input
 
 * * *
@@ -599,6 +617,7 @@ Response from Server:
         ],
 }
 ```
+
 - result is a double which value is a number from [0.0 - 1.0] describing how similiar the images in input are
 
 * * *
@@ -630,6 +649,7 @@ Response from Server:
         ]
 }
 ```
+
 - medical_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)
 
 
@@ -660,6 +680,7 @@ Response from Server:
         ]
 }
 ```
+
 - data contains all the points of the countours of the task, according to OpenCV format (Point: x, y)
 
 
@@ -687,6 +708,7 @@ Response from Server:
         ]
 }
 ```
+
 - the first element of result is the number of times that the waveform crosses the zero axis, meanwhile the second one is the rate of the number of times that the waveform crosses the zero axis
 
 
@@ -712,6 +734,7 @@ Response from Server:
         ]
 }
 ```
+
 - result is a double representing the total magnitude of the signal
 
 
@@ -736,6 +759,7 @@ Response from Server:
         ]
 }
 ```
+
 - result is the number of the given FFT of the input
 
 
@@ -760,6 +784,7 @@ Response from Server:
         ]
 }
 ```
+
 - result is the number of the given STFT of the input
 
 
@@ -784,6 +809,7 @@ Response from Server:
         ]
 }
 ```
+
 - the result is the corresponding note in midi notation of the input
 
 

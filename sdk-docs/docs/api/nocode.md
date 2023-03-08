@@ -31,10 +31,15 @@ The GUI will be available at address `127.0.0.1:8000` .
 ![Top menu](https://musebox.it/wp-content/uploads/2023/03/nocode-gui-top.png)
 
 On the top menu, there are 5 buttons:
+
 - save: save your current pipeline on the local storage of your browser
+
 - load: load your previous saved pipeline
+
 - download: download the pipeline as JSON file (if you want to use it on a custom client)
+
 - play/stop: start the pipeline or stop the pipeline
+
 - step: step to the next "frame" of the execution
 
 
@@ -86,17 +91,29 @@ When you right click on the main grid, a node menu will open. You can select dif
 The node types are the following:
 
 - MuseBox Configuration: the configuration node
+
 - MuseBox Input: the possible input of the system
+
 - MuseBox Operators: operations useful for the pipeline (that runs on client CPU)
+
 - MuseBox Ouptut: the possible output of the system
+
 - MuseBox Tasks: machine learning task
+
 - basic: basic operations and variable useful for the pipeline
+
 - events: events generated during the pipeline
+
 - logic: boolean operations
+
 - math: mathematic operations (that runs on client CPU)
+
 - math3d: mathematic 3D operations ( that runs on client CPU)
+
 - string: string operations
+
 - widget: graphical widget for the pipeline (buttons, gauges, knobs, etc)
+
 
 ## Node menu expansion
 

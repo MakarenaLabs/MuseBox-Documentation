@@ -1,11 +1,13 @@
 # Setup
 
 MuseBox Server is provided as an executable file.
-There are 2 executable files:
+There are 3 executable files:
+
 - MuseBoxVideo (for video tasks)
-- MuseBoxVideoWithIP (for video tasks both DPU and custom IPs)
 - MuseBoxAudio (for audio tasks)
-  
+- MuseBoxVideoWithIP (for video tasks both DPU and custom IPs)
+
+
 The executable file are in `/usr/local/bin` called `MuseBoxVideo`, `MuseBoxVideoWithIP` and `MuseBoxAudio`. For starting a server, simply run the preferred MuseBox command.
 
 For example, if you want to run MuseBox server for video task, run:
@@ -14,6 +16,7 @@ For example, if you want to run MuseBox server for video task, run:
 # for websocket communication
 MuseBoxVideo websocket
 ```
+
 ```
 # for zmq communication
 MuseBoxVideo zmq

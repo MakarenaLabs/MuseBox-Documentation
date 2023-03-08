@@ -15,8 +15,10 @@ You can run the example on the board with this command:
 ./client <topic> <image | txt> [<image 2>]
 ```
 
-`topic`: a machine learning task of the following: FaceDetection", "FaceRecognition", "FaceLandmark", "AgeDetection", "GenderDetection","GlassesDetection","EmotionRecognition", "TextDetection", "LogoDetection", "LogoRecognition", "PeopleDetection", "ObjectDetection", "MonoDepth","MonoDepth2", "MedicalDetection", "MedicalSegmentation","HumanSegmentation", "ImagePortrait", "StochasticDifference", "ZeroCrossingRate", "SignalEnergy", "FFT", "STFT", "Monoaudio2Midi"
+`topic`: a machine learning task of the following: `"FaceDetection", "FaceRecognition", "FaceLandmark", "AgeDetection", "GenderDetection","GlassesDetection","EmotionRecognition", "TextDetection", "LogoDetection", "LogoRecognition", "PeopleDetection", "ObjectDetection", "MonoDepth","MonoDepth2", "MedicalDetection", "MedicalSegmentation","HumanSegmentation", "ImagePortrait", "StochasticDifference", "ZeroCrossingRate", "SignalEnergy", "FFT", "STFT", "Monoaudio2Midi"`
 
 `image`: a local image path (like jpeg, png, jpg, etc image)
+
 `txt`: a txt file that contains values
+
 `image 2 (optional)`: a second local image path
