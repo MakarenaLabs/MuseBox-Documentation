@@ -2,10 +2,23 @@
 
 MuseBox Server is provided as an executable file.
 There are 2 executable files:
-- MuseBox Video (for video tasks)
-- MuseBox Audio (for audio tasks)
+- MuseBoxVideo (for video tasks)
+- MuseBoxVideoWithIP (for video tasks both DPU and custom IPs)
+- MuseBoxAudio (for audio tasks)
   
-The executable file are in `~/makarenalabs/musebox` called `MuseBoxVideo` and `MuseBoxAudio`. 
+The executable file are in `/usr/local/bin` called `MuseBoxVideo`, `MuseBoxVideoWithIP` and `MuseBoxAudio`. For starting a server, simply run the preferred MuseBox command.
+
+For example, if you want to run MuseBox server for video task, run:
+
+```
+# for websocket communication
+MuseBoxVideo websocket
+```
+```
+# for zmq communication
+MuseBoxVideo zmq
+```
+
 
 
 # Pre-built image
@@ -31,10 +44,23 @@ When you receive the license file, you need to place the file in this path:
 
 # Troubleshooting
 
-if you have this error when you run the MuseBox server or you request the license: 
+If you have this error when you run the MuseBox server or you request the license: 
 
 `Unknown device "/dev/mmcblk0": No such file or directory` 
 
 please launch this command: 
 
 `ln -s /dev/mmcblk1 /dev/mmcblk0`
+
+
+---
+
+If the machine learning tasks seems to give wrong responses, please restart your board.
+
+---
+
+If you need more help, contact us at:
+
+https://discord.gg/NpkTaJPAdp
+
+staff@makarenalabs.com

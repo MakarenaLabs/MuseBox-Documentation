@@ -22,6 +22,11 @@ MuseBox runs on Zynq7000, Zynq Ultrascale+ MPSoC, ALVEO and VERSAL platforms.
 
 [AMD Xilinx Solution Brief](https://www.xilinx.com/publications/solution-briefs/partner/musebox-solution-brief.pdf)
 
+Join our community!
+
+[![](https://dcbadge.vercel.app/api/server/NpkTaJPAdp)](https://discord.gg/NpkTaJPAdp)
+
+
 ## References
 
 [**PYNQ**](https://github.com/Xilinx/PYNQ): Python on Zynq is an open-source project from Xilinx that makes it easy to design embedded systems with Zynq All Programmable Systems on Chips (APSoCs). Using the Python language and libraries, designers can exploit the benefits of programmable logic and microprocessors in Zynq to build more capable and exciting embedded systems. 
