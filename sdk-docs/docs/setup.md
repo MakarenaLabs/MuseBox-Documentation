@@ -28,3 +28,13 @@ This command generates the file `license_request.req` in the path `/usr/local` .
 Our internal system will check if the email is associated to a valid customer, then, according to your signed contract, the system will respond to you with the license file, called `license.lic` .
 When you receive the license file, you need to place the file in this path:
 `/usr/local/bin`
+
+# Troubleshooting
+
+if you have this error when you run the MuseBox server or you request the license: 
+
+`Unknown device "/dev/mmcblk0": No such file or directory` 
+
+please launch this command: 
+
+`ln -s /dev/mmcblk1 /dev/mmcblk0`

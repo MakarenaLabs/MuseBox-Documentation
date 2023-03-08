@@ -7,6 +7,25 @@ You only need to start the MuseBox server with websocket protocol (depending on 
 A little demonstration:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sd8-6jzzWII" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+## Getting started
+
+The software runs on a web browser on your PC (Chrome or Firefox). You need NodeJS on your PC (https://nodejs.org/en/) and python (https://www.python.org/downloads/).
+
+Just download the source code here: 
+
+```
+https://github.com/MakarenaLabs/MuseBox-NoCode-GUI
+```
+
+and run these commands inside the root directory of the project:
+
+```
+npm install
+python -m http.server 8000
+```
+
+The GUI will be available at address `127.0.0.1:8000` .
+
 
 ## Top menu
 ![Top menu](https://musebox.it/wp-content/uploads/2023/03/nocode-gui-top.png)

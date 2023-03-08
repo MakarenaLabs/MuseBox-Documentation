@@ -456,7 +456,7 @@ Response from Server:
     "data":
         [
             {
-                "object_BB":
+                "logo_BB":
                     {
                         "height": <int>,
                         "width": <int>,

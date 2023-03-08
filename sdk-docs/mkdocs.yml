@@ -7,7 +7,7 @@ nav:
     - API overview: 'api/general.md'
     - Example C++: 'api/cpp.md'
     - Example Python: 'api/python.md'
-    - Generation from NoCode (experimental): 'api/nocode.md'
+    - NoCode GUI: 'api/nocode.md'
 
 markdown_extensions:
   - attr_list
