@@ -71,7 +71,7 @@ All the APIs are in JSON format, and have the same structure. The structure is t
 {
     "topic": <string>,
     "only_face": <bool>,
-    "image": <base64 image>,
+    "image"/"input: <base64 image>/double array,
     "publisherQueue": <string>
 }
 ```
@@ -149,11 +149,12 @@ For example, Face Recognition without `only_face: true`:
 
 #### **Face detection**
 
-It detects the faces in a scene up to 32×32 pixel
+It detects the faces in a scene up to 32×32 pixel.
 
 Request from Client:
 ```
 "topic": "FaceDetection"
+"image": "base64 image"
 ```
 Response from Server:
 ```
@@ -181,6 +182,7 @@ Given a face bounding box, it extracts the 98 relevant points of a face.
 Request from Client:
 ```
 "topic": "FaceLandmark"
+"image": "base64 image"
 "only_face"?: true
 ```
 
@@ -199,13 +201,14 @@ Response from Server:
 
 #### **Face recognition**
 
-Given a face bounding box and a database of faces, it recognizes a face in a scene
+Given a face bounding box and a database of faces, it recognizes a face in a scene.
 
 You need to populate the directory `/usr/local/bin/database/people` with the photos of the desired people.
 
 Request from Client:
 ```
 "topic": "FaceRecognition"
+"image": "base64 image"
 "only_face"?: true
 ```
 
@@ -225,11 +228,12 @@ Response from Server:
 
 #### **Glasses detection**
 
-Given a face bounding box, it detects whether a person wear glasses or not
+Given a face bounding box, it detects whether a person is wearing glasses or not.
 
 Request from Client:
 ```
 "topic": "GlassesDetection"
+"image": "base64 image"
 "only_face"?: true
 ```
 
@@ -246,36 +250,14 @@ Response from Server:
 ```
 - glasses is the result of inference (glasses / no glasses)
 
-#### **Eye Blink Detection**
-
-Given a face bounding box, it detects where are the eyes and it determines if they are blinking or not
-
-Request from Client:
-```
-"topic": "EyeBlink"
-"only_face"?: true
-```
-
-Response from Server:
-```
-{
-    "data":
-        [
-            {
-                "eyeState": "opened"/"closed"
-            }
-        ]
-}
-```
-- eyeState is the result of inference (opened eyes / closed eyes)
-
 #### **Age Detection**
 
-Given a face bounding box, it determines the age of a person
+Given a face bounding box, it determines the age of a person.
 
 Request from Client:
 ```
 "topic": "AgeDetection"
+"image": "base64 image"
 "only_face"?: true
 ```
 
@@ -295,11 +277,12 @@ Response from Server:
 
 #### **Gender Detection**
 
-Given a face bounding box, it determines if the person is female or male
+Given a face bounding box, it determines if the person is female or male.
 
 Request from Client:
 ```
 "topic": "GenderDetection"
+"image": "base64 image"
 "only_face"?: true
 ```
 
@@ -320,15 +303,44 @@ Response from Server:
 * * *
 
 
+#### **Emotion Recognition**
+
+Given a face bounding box, it determines the facial expression/emotion of the person.
+
+Request from Client:
+```
+"topic": "EmotionRecognition"
+"image": "base64 image"
+"only_face"?: true
+```
+
+Response from Server:
+```
+{
+    "data":
+        [
+            {
+                "emotion": "angry"/"disgust"/"fear"/"happy"/"sad"/"surprise"/"neutral"
+            }
+        ]
+}
+```
+- emotion corresponds to the facial emotion of the person
+
+
+* * *
+
+
 ### People Analysis
 
 #### **People detection**
 
-It detects the people in a scene up to 64×64 pixel
+It detects the people in a scene up to 64×64 pixel.
 
 Request from Client:
 ```
 "topic": "PeopleDetection"
+"image": "base64 image"
 ```
 Response from Server:
 ```
@@ -349,17 +361,66 @@ Response from Server:
 ```
 - people_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)
 
+
+#### **Human Segmentation**
+
+It segments the people present in a scene
+
+Request from Client:
+```
+"topic": "HumanSegmentation"
+"image": "base64 image"
+```
+Response from Server:
+```
+{
+    "data":
+        [
+            {
+                "image":[ 320x320 double]
+            }
+        ],
+}
+```
+- image is an array of doubles that creates the mask to be applied on top of the original image 
+
+* * *
+
+
+#### **Image Portrait**
+
+It draws a black and white portrait of the people in the image.
+
+Request from Client:
+```
+"topic": "ImagePortrait"
+"image": "base64 image"
+```
+Response from Server:
+```
+{
+    "data":
+        [
+            {
+                "image":[ 512x512 double]
+            }
+        ],
+}
+```
+- image is an array of doubles that creates a black and white portrait image
+
 * * *
 
 ### **Object Analysis**
 
 #### **Object detection**
 
-It detects the objects in a scene up to 64×64 pixel
+It detects the objects in a scene up to 64×64 pixel.
 
 Request from Client:
 ```
 "topic": "ObjectDetection"
+"image": "base64 image"
 ```
 Response from Server:
 ```
@@ -382,11 +443,12 @@ Response from Server:
 
 #### **Logo detection**
 
-It detects the objects in a scene up to 64×64 pixel
+It detects the objects in a scene up to 64×64 pixel.
 
 Request from Client:
 ```
 "topic": "LogoDetection"
+"image": "base64 image"
 ```
 Response from Server:
 ```
@@ -410,13 +472,14 @@ Response from Server:
 
 #### **Logo Recognition**
 
-Given a logo bounding box, it determines the brand name
+Given a logo bounding box, it determines the brand name.
 
 You need to populate the directory `/usr/local/bin/database/logos` with the photos of the desired logos.
 
 Request from Client:
 ```
 "topic": "LogoRecognition"
+"image": "base64 image"
 "only_face"?: true
 ```
 
@@ -432,6 +495,296 @@ Response from Server:
 }
 ```
 - logoFound corresponds to the name of the logo
+
+
+* * *
+
+#### **Text Detection**
+
+Given an image, it detects the texts inside of it.
+
+Request from Client:
+```
+"topic": "TextDetection"
+"image": "base64 image"
+```
+
+Response from Server:
+```
+{
+    "data":
+        [
+            "text_BB":
+                    {
+                        "height": <int>,
+                        "width": <int>,
+                        "x": <int>,
+                        "y": <int>
+                    }
+        ]
+}
+```
+- text_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)
+
+
+* * *
+
+#### **Monocular Depth**
+
+Given an image in input, it returns its depth estimation.
+
+Request from Client:
+```
+"topic": "MonoDepth"
+"image": "base64 image"
+```
+Response from Server:
+```
+{
+    "data":
+        [
+            {
+                "image":[ 128x128 double]
+            }
+        ],
+}
+```
+- image is an array of doubles that represents the depth estimation of the input
+
+* * *
+
+#### **Monocular Depth #2**
+
+Given an image in input, it returns its depth estimation.
+
+Request from Client:
+```
+"topic": "MonoDepth2"
+"image": "base64 image"
+```
+Response from Server:
+```
+{
+    "data":
+        [
+            {
+                "image":[ 192x640 double]
+            }
+        ],
+}
+```
+- image is an array of doubles that represents the depth estimation of the input
+
+* * *
+
+
+#### **Stochastic Difference**
+
+Given two images in input, it returns how similiar those images are.
+
+Request from Client:
+```
+"topic": "StochasticDifference"
+"image": "base64 image"
+"image2": "base64 image"
+```
+Response from Server:
+```
+{
+    "data":
+        [
+            {
+                "result": double
+            }
+        ],
+}
+```
+- result is a double which value is a number from [0.0 - 1.0] describing how similiar the images in input are
+
+* * *
+
+
+### **Medical Analysis**
+#### **Medical Detection**
+
+Given an endoscopic image, it detects anything suspicious in it.
+
+Request from Client:
+```
+"topic": "MedicalDetection"
+"image": "base64 image"
+```
+
+Response from Server:
+```
+{
+    "data":
+        [
+            "medical_BB":
+                    {
+                        "height": <int>,
+                        "width": <int>,
+                        "x": <int>,
+                        "y": <int>
+                    }
+        ]
+}
+```
+- medical_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)
+
+
+* * *
+
+#### **Medical Segmentation**
+
+Given an endoscopic image, it segments anything suspicious in it.
+
+Request from Client:
+```
+"topic": "MedicalSegmentation"
+"image": "base64 image"
+```
+
+Response from Server:
+```
+{
+    "data":
+        [
+            "countour":
+                    {
+                        "Point": {
+                            "x": <int>,
+                            "y": <int>
+                        }
+                    }
+        ]
+}
+```
+- data contains all the points of the countours of the task, according to OpenCV format (Point: x, y)
+
+
+* * *
+
+
+### **Audio Analysis**
+#### **Zero Crossing Rate**
+
+Given a double array in input, it measures how many times the waveform crosses the zero axis.
+
+Request from Client:
+```
+"topic": "ZeroCrossingRate"
+"input": [4410 double]
+
+```
+
+Response from Server:
+```
+{
+    "data":
+        [
+            "result": [double, double]
+        ]
+}
+```
+- the first element of result is the number of times that the waveform crosses the zero axis, meanwhile the second one is the rate of the number of times that the waveform crosses the zero axis
+
+
+* * *
+
+#### **Signal Energy**
+
+Given a double array in input, it returns the total magnitude of the signal.
+For audio signals, that roughly corresponds to how loud the signal is.
+
+Request from Client:
+```
+"topic": "SignalEnergy"
+"input": [4410 double]
+```
+
+Response from Server:
+```
+{
+    "data":
+        [
+            "result": double
+        ]
+}
+```
+- result is a double representing the total magnitude of the signal
+
+
+* * *
+
+#### **FFT**
+
+Given a double array in input, it returns the FFT of the input.
+
+Request from Client:
+```
+"topic": "FFT"
+"input": [2048 double]
+```
+
+Response from Server:
+```
+{
+    "data":
+        [
+            "result": [ 2048 double]
+        ]
+}
+```
+- result is the number of the given FFT of the input
+
+
+* * *
+
+#### **STFT**
+
+Given a double array in input, it returns the STFT of the input.
+
+Request from Client:
+```
+"topic": "STFT"
+"input": [2048 double]
+```
+
+Response from Server:
+```
+{
+    "data":
+        [
+            "result": [ 2048 double]
+        ]
+}
+```
+- result is the number of the given STFT of the input
+
+
+* * *
+
+#### **Mono Audio to Midi**
+
+Given a double array in input, it returns the corresponding note in midi notation (from A0 to B0 of a monophonic audio, for example, if you pass to the function a sine wave of 440hz, the function returns A3).
+
+Request from Client:
+```
+"topic": "Monoaudio2Midi"
+"input": [5512 double]
+```
+
+Response from Server:
+```
+{
+    "data":
+        [
+            "result": [string, string]
+        ]
+}
+```
+- the result is the corresponding note in midi notation of the input
 
 
 * * *
