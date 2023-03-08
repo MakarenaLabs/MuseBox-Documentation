@@ -178,9 +178,15 @@
                 <h1 id="api-overview">API Overview</h1>
 <h2 id="the-theory">The Theory</h2>
 <p>MuseBox Server works via asynchronous messaging API based on different protocols.
-Every MuseBox Server implementation has an API system that supports 2  protocols:
-- <a href="https://zeromq.org/">ZeroMQ</a> (aka ZMQ or ØMQ or 0MQ), an embedded library for queue-based communication stack.
-- <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSocket</a>, a standard two-way interactive communication protocol</p>
+Every MuseBox Server implementation has an API system that supports 2  protocols:</p>
+<ul>
+<li>
+<p><a href="https://zeromq.org/">ZeroMQ</a> (aka ZMQ or ØMQ or 0MQ), an embedded library for queue-based communication stack.</p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSocket</a>, a standard two-way interactive communication protocol</p>
+</li>
+</ul>
 <p>You can choose the communication protocol when you will start the MuseBox server, you simply pass to the second parameter of the executable the protocol (<code>zmq</code> or <code>websocket</code>). For example:</p>
 <pre><code>./MuseBoxAudio websocket
 </code></pre>
@@ -200,8 +206,12 @@ The payload of the message is in JSON format.</p>
 }
 </code></pre>
 <ul>
-<li>the MuseBox Server receives the message. If the selected protocol is zeromq, according to the field "publisherQueue" will open a socket to the address <code>tcp://*:5000</code> and will send the response there.</li>
-<li>the MuseBox Server sends the reponse to the MuseBox Client: </li>
+<li>
+<p>the MuseBox Server receives the message. If the selected protocol is zeromq, according to the field "publisherQueue" will open a socket to the address <code>tcp://*:5000</code> and will send the response there.</p>
+</li>
+<li>
+<p>the MuseBox Server sends the reponse to the MuseBox Client: </p>
+</li>
 </ul>
 <pre><code>{
     &quot;data&quot;:
@@ -265,11 +275,21 @@ In ZMQ socket binding, the Client will bind at this address for sending data to 
 </code></pre>
 <p>Where:</p>
 <ul>
-<li>"publisherQueue" is the same string that the Client sent previously</li>
-<li>"status" is the status of the request (success / error)</li>
-<li>"topic" is the requested inference task</li>
-<li>"data" is the inference result in JSON Array, where:</li>
-<li>"\<topic>_BB" is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)</li>
+<li>
+<p>"publisherQueue" is the same string that the Client sent previously</p>
+</li>
+<li>
+<p>"status" is the status of the request (success / error)</p>
+</li>
+<li>
+<p>"topic" is the requested inference task</p>
+</li>
+<li>
+<p>"data" is the inference result in JSON Array, where:</p>
+</li>
+<li>
+<p>"\<topic>_BB" is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)</p>
+</li>
 </ul>
 <p>NB: if the selected task has dependent tasks (e.g. Face Recognition requires Face Detection) and you have not setted <code>only_face: true</code>, the field "data" contains all the dependent task executed.
 For example, Face Recognition without <code>only_face: true</code>:</p>
