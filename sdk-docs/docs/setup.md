@@ -22,7 +22,7 @@ MuseBoxVideo zmq
 
 
 # Pre-built image
-You can download the pre-built image from here: ...
+You can download the pre-built image from here: [DOWNLOAD NOW!](https://tinyurl.com/2lxb4gnn)
 
 You only need to flash the image on a SD card with common image burner. We suggest BalenaEtcher as SD image burner.
 
