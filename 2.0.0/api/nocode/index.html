@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>NoCode GUI - SDK Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../../css/version-select.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "NoCode GUI";
+    var mkdocs_page_input_path = "api\\nocode.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SDK Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Home</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../setup/">Setup</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../general/">API overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cpp/">Example C++</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../python/">Example Python</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">NoCode GUI</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#top-menu">Top menu</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nodes">Nodes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#startup">Startup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#node-menu">Node menu</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#node-menu-expansion">Node menu expansion</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SDK Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Home &raquo;</li>
+        
+      
+    
+    <li>NoCode GUI</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="nocode-gui">NoCode GUI</h1>
+<p>The NoCode GUI allows you to execute in live the entire ML pipeline without any interaction with the backend software (in particular, you don't need to restart any process on the FPGA board, you just modify or compose your ML pipeline).</p>
+<p>You only need to start the MuseBox server with websocket protocol (depending on the task that you want to implement).</p>
+<p>A little demonstration:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sd8-6jzzWII" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<h2 id="getting-started">Getting started</h2>
+<p>The software runs on a web browser on your PC (Chrome or Firefox). You need NodeJS on your PC (https://nodejs.org/en/) and python (https://www.python.org/downloads/).</p>
+<p>Just download the source code here: </p>
+<pre><code>https://github.com/MakarenaLabs/MuseBox-NoCode-GUI
+</code></pre>
+<p>and run these commands inside the root directory of the project:</p>
+<pre><code>npm install
+python -m http.server 8000
+</code></pre>
+<p>The GUI will be available at address <code>127.0.0.1:8000</code> .</p>
+<h2 id="top-menu">Top menu</h2>
+<p><img alt="Top menu" src="https://musebox.it/wp-content/uploads/2023/03/nocode-gui-top.png" /></p>
+<p>On the top menu, there are 5 buttons:</p>
+<ul>
+<li>
+<p>save: save your current pipeline on the local storage of your browser</p>
+</li>
+<li>
+<p>load: load your previous saved pipeline</p>
+</li>
+<li>
+<p>download: download the pipeline as JSON file (if you want to use it on a custom client)</p>
+</li>
+<li>
+<p>play/stop: start the pipeline or stop the pipeline</p>
+</li>
+<li>
+<p>step: step to the next "frame" of the execution</p>
+</li>
+</ul>
+<h2 id="nodes">Nodes</h2>
+<p>For adding a node on your current pipeline, click the right-click of the mouse.
+For customize a node, double-click on the node and a side menu will open.</p>
+<p>Every node has a number of input and output, identified graphically with a name (string) and a point. You can connect the output of a node to the input of another node simply dragging a line from one "point" to another with the left button mouse.</p>
+<p>For example, take a look at the "face detection" node:</p>
+<p><img alt="face detection example" src="https://musebox.it/wp-content/uploads/2023/03/face-detection.png" /></p>
+<p>This node has 2 inputs ("frame" and "person bounding box") and 3 outputs ("face bounding box", "post process", "logs"). Those input are typed, so you cannot connect those inputs with outputs that have a different type (the GUI prevent you to connect the unelegible nodes).</p>
+<p>For example, a face detector takes in input an image and returns the bounding boxes. Those bounding boxes can be used by another task that can accept in input a bounding box (for example, the face landmarking).</p>
+<p>For instance, this is an elegible connection:</p>
+<p><img alt="elegible connection" src="https://musebox.it/wp-content/uploads/2023/03/possible-connection.png" /></p>
+<p>You can notice that the input of face landmarking node is blinking and it is selectable, so when you will release the mouse the link will remain between the 2 nodes.</p>
+<p>Finally, this is a forbidden connection:</p>
+<p><img alt="forbidden connection" src="https://musebox.it/wp-content/uploads/2023/03/not-possible-connection.png" /></p>
+<p>You can notice that the input of the "not" node is not highlighted, because it takes in input a boolean value, not a bounding box. So, when you will release the mouse, the link will disappears.</p>
+<h2 id="startup">Startup</h2>
+<p>At the startup, the "configuration" node will appear on the top-left of the grid.</p>
+<p><img alt="Configuration node" src="https://musebox.it/wp-content/uploads/2023/03/configuration-node.png" /></p>
+<p><img alt="Configuration node menu" src="https://musebox.it/wp-content/uploads/2023/03/configuration-node-menu.png" /></p>
+<p>You can set the websocket url. At startup, the websocket url is setted as <code>ws://127.0.0.1:8083</code>. 
+If you are using the nocode GUI directly on the board, you can leave the websocket url as-is, meanwhile if you are using the GUI from your PC, simply replace the written IP with the board IP.</p>
+<h2 id="node-menu">Node menu</h2>
+<p>When you right click on the main grid, a node menu will open. You can select different kind of nodes according to your purpose.</p>
+<p><img alt="node menu" src="https://musebox.it/wp-content/uploads/2023/03/nodes-menu.png" /></p>
+<p>The node types are the following:</p>
+<ul>
+<li>
+<p>MuseBox Configuration: the configuration node</p>
+</li>
+<li>
+<p>MuseBox Input: the possible input of the system</p>
+</li>
+<li>
+<p>MuseBox Operators: operations useful for the pipeline (that runs on client CPU)</p>
+</li>
+<li>
+<p>MuseBox Ouptut: the possible output of the system</p>
+</li>
+<li>
+<p>MuseBox Tasks: machine learning task</p>
+</li>
+<li>
+<p>basic: basic operations and variable useful for the pipeline</p>
+</li>
+<li>
+<p>events: events generated during the pipeline</p>
+</li>
+<li>
+<p>logic: boolean operations</p>
+</li>
+<li>
+<p>math: mathematic operations (that runs on client CPU)</p>
+</li>
+<li>
+<p>math3d: mathematic 3D operations ( that runs on client CPU)</p>
+</li>
+<li>
+<p>string: string operations</p>
+</li>
+<li>
+<p>widget: graphical widget for the pipeline (buttons, gauges, knobs, etc)</p>
+</li>
+</ul>
+<h2 id="node-menu-expansion">Node menu expansion</h2>
+<p>MuseBox input</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/musebox-input.png" /></p>
+<p>MuseBox operations</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/operator-nodes.png" /></p>
+<p>MuseBox output</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/output-nodes.png" /></p>
+<p>MuseBox Tasks:</p>
+<p>Face analysis tasks</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/face-analysis.png" /></p>
+<p>Object analysis tasks</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/object-analysis.png" /></p>
+<hr />
+<p>Basic nodes</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/basic-nodes.png" /></p>
+<p>Events nodes</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/events.png" /></p>
+<p>Logic nodes</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/logic-nodes.png" /></p>
+<p>Math nodes</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/math-nodes.png" /></p>
+<p>3D Math nodes</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/math-3d-nodes.png" /></p>
+<p>String nodes</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/string-nodes-1.png" /></p>
+<p>widget nodes</p>
+<p><img alt="" src="https://musebox.it/wp-content/uploads/2023/03/widget-nodes-1.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../python/" class="btn btn-neutral" title="Example Python"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../python/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+      <script src="../../js/version-select.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
