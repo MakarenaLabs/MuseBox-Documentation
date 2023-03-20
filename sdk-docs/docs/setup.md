@@ -30,7 +30,7 @@ The server will be ready in about 30 seconds. When the server is online, it will
 ```
 
 # Pre-built image
-You can download the pre-built image from here: [DOWNLOAD NOW!](https://s3.eu-west-1.wasabisys.com/musebox/IMG/MuseBox_v2.0.0_official_release.img)
+You can download the pre-built image from here: [DOWNLOAD NOW!](https://musebox.it/musebox-server-download/)
 
 You only need to flash the image on a SD card with common image burner. We suggest BalenaEtcher as SD image burner.
 
