@@ -22,7 +22,12 @@ MuseBoxVideo websocket
 MuseBoxVideo zmq
 ```
 
-
+The server will be ready in about 30 seconds. When the server is online, it will print this information:
+```
+********************************************
+* MuseBox Server is running at port 9696!  *
+********************************************
+```
 
 # Pre-built image
 You can download the pre-built image from here: [DOWNLOAD NOW!](https://s3.eu-west-1.wasabisys.com/musebox/IMG/MuseBox_v2.0.0_official_release.img)
@@ -40,7 +45,7 @@ For the license request, you need to create the license request file. To do that
 
 `license_request`
 
-This command generates the file `license_request.req` in the path `/usr/local` . You need to send to us the file via email at `staff@makarenalabs.com` with the subject `MuseBox License request` .
+This command generates the file `license_request.req` in the path `/usr/local` . You need to send to us the file via email at `staff@makarenalabs.com` with the subject `MuseBox License request` and with the message body `I accept your evaluation license agreement`.
 Our internal system will check if the email is associated to a valid customer, then, according to your signed contract, the system will respond to you with the license file, called `license.lic` .
 When you receive the license file, you need to place the file in this path:
 `/usr/local/bin`

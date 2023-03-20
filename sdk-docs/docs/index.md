@@ -35,4 +35,8 @@ Join our community!
 
 **PYNQ** License : [BSD 3-Clause License](https://github.com/Xilinx/PYNQ/blob/master/LICENSE)
 
-**MuseBox** License : Commercial License
+**MuseBox** License : [Commercial License](https://musebox.it/license-agreement/) 
+
+**MuseBox** Evaluation License : [Evaluation License](https://musebox.it/software-evaluation-license-agreement/)
+
+Downloading the MuseBox Server and License, you will accept the license agreement.
