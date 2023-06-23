@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>PYNQ Interface - SDK Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../css/version-select.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "PYNQ Interface";
+    var mkdocs_page_input_path = "pynq-interface.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> SDK Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Home</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../setup/">Setup</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/general/">API overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/cpp/">Example C++</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/python/">Example Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../api/nocode/">NoCode GUI</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">PYNQ Interface</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#license-request">License request</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">SDK Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Home &raquo;</li>
+        
+      
+    
+    <li>PYNQ Interface</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="pynq-interface">PYNQ Interface</h1>
+<p>The PYNQ interface is beneficial because you can explore FPGA programming, machine learning, and multimedia processing in a simple and convenient way. And, you can build and customize your own AI pipeline and project using MuseBox in a much easier way.</p>
+<h2 id="setup">Setup</h2>
+<p>Firstly, for the setup, you will need a KV260 board, on which is running Ubuntu 22.04 LTS, PYNQ, PYNQ-DPU, and MuseBox.</p>
+<p>Therefore, the first step to do is to install Ubuntu 22.04. We are using the latest version from <a href="https://ubuntu.com/download/amd-xilinx">Install Ubuntu on Xilinx | Ubuntu</a>.</p>
+<p>Secondly, you should install <a href="https://github.com/Xilinx/Kria-PYNQ">Kria-PYNQ</a> and <a href="https://github.com/Xilinx/DPU-PYNQ">PYNQ-DPU</a>. It may take some time.</p>
+<p>Finally, once you finish installing everything we mentioned, MakarenaLabs provides a .so file that should be put on <code>/usr/local/share/pynq-venv/lib/python3.10/site-packages/</code>. You can request this file by sending an email to <code>staff@makarenalabs.com</code>.</p>
+<p>You are now ready to start and create your own AI pipelines.</p>
+<h2 id="license-request">License request</h2>
+<p>In order to obtain the license, you need to request the node locker license.</p>
+<p><strong>The license is valid for a specific board, so you cannot use the license on a different node.</strong></p>
+<p>For the license request, you need to create the license request file. To do that, simply run this command:</p>
+<p><code>license_request</code></p>
+<p>This command generates the file <code>license_request.req</code> in the path <code>/usr/local</code> . You need to send to us the file via email at <code>staff@makarenalabs.com</code> with the subject <code>MuseBox License request</code> and with the message body <code>I accept your evaluation license agreement</code>.</p>
+<p>Our internal system will check if the email is associated to a valid customer, then, according to your signed contract, the system will respond to you with the license file, called <code>license.lic</code> .
+When you receive the license file, you need to place the file in this path:</p>
+<p><code>/usr/local/bin</code></p>
+<h2 id="usage">Usage</h2>
+<iframe width="720" height="640" src="https://www.youtube.com/embed/0RjbPPXmDKM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../api/nocode/" class="btn btn-neutral" title="NoCode GUI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../api/nocode/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+      <script src="../js/version-select.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
