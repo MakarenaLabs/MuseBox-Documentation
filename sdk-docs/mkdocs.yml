@@ -4,11 +4,11 @@ nav:
   - Home: 
     - Introduction: 'index.md'
     - Setup: 'setup.md'
-    - PYNQ Interface: 'pynq-interface.md'
     - API overview: 'api/general.md'
     - Example C++: 'api/cpp.md'
     - Example Python: 'api/python.md'
     - NoCode GUI: 'api/nocode.md'
+    - PYNQ Interface: 'pynq-interface.md'
 
 markdown_extensions:
   - attr_list
