@@ -30,7 +30,7 @@ The server will be ready in about 30 seconds. When the server is online, it will
 ```
 
 # Pre-built image
-You can download the pre-built image from here: [DOWNLOAD NOW!](https://musebox.it/musebox-server-download/)
+You can ask us for the pre-built image by sending an email on `staff@makarenalabs.com`.
 
 You only need to flash the image on a SD card with common image burner. We suggest BalenaEtcher as SD image burner.
 
@@ -51,17 +51,6 @@ When you receive the license file, you need to place the file in this path:
 `/usr/local/bin`
 
 # Troubleshooting
-
-If you have this error when you run the MuseBox server or you request the license: 
-
-`Unknown device "/dev/mmcblk0": No such file or directory` 
-
-please launch this command: 
-
-`ln -s /dev/mmcblk1 /dev/mmcblk0`
-
-
----
 
 If the machine learning tasks seems to give wrong responses, please restart your board.
 

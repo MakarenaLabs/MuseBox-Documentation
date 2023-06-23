@@ -4,6 +4,7 @@ nav:
   - Home: 
     - Introduction: 'index.md'
     - Setup: 'setup.md'
+    - PYNQ Interface: 'pynq-interface.md'
     - API overview: 'api/general.md'
     - Example C++: 'api/cpp.md'
     - Example Python: 'api/python.md'
