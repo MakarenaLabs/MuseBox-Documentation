@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>API overview - SDK Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../../css/version-select.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "API overview";
+    var mkdocs_page_input_path = "api\\general.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SDK Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Home</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../setup/">Setup</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">API overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-theory">The Theory</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#apis">APIs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#face-analysis">Face Analysis</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#face-detection">Face detection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#face-landmarking">Face landmarking</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#face-recognition">Face recognition</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#glasses-detection">Glasses detection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#age-detection">Age Detection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#gender-detection">Gender Detection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#emotion-recognition">Emotion Recognition</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#people-analysis">People Analysis</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#people-detection">People detection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#human-segmentation">Human Segmentation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#image-portrait">Image Portrait</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#object-analysis">Object Analysis</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#object-detection">Object detection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#logo-detection">Logo detection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#logo-recognition">Logo Recognition</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#text-detection">Text Detection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#monocular-depth">Monocular Depth</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#monocular-depth-2">Monocular Depth #2</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stochastic-difference">Stochastic Difference</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#medical-analysis">Medical Analysis</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#medical-detection">Medical Detection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#medical-segmentation">Medical Segmentation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#audio-analysis">Audio Analysis</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#zero-crossing-rate">Zero Crossing Rate</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#signal-energy">Signal Energy</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fft">FFT</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stft">STFT</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#mono-audio-to-midi">Mono Audio to Midi</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cpp/">Example C++</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../python/">Example Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../nocode/">NoCode GUI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../pynq-interface/">PYNQ Interface</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SDK Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Home &raquo;</li>
+        
+      
+    
+    <li>API overview</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="api-overview">API Overview</h1>
+<h2 id="the-theory">The Theory</h2>
+<p>MuseBox Server works via asynchronous messaging API based on different protocols.
+Every MuseBox Server implementation has an API system that supports 2  protocols:</p>
+<ul>
+<li>
+<p><a href="https://zeromq.org/">ZeroMQ</a> (aka ZMQ or ØMQ or 0MQ), an embedded library for queue-based communication stack.</p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSocket</a>, a standard two-way interactive communication protocol</p>
+</li>
+</ul>
+<p>You can choose the communication protocol when you will start the MuseBox server, you simply pass to the second parameter of the executable the protocol (<code>zmq</code> or <code>websocket</code>). For example:</p>
+<pre><code>./MuseBoxAudio websocket
+</code></pre>
+<p>If you need a point-to-point communication with 1 client or you have a web-based client, it is preferrable the WebSocket communication, otherwise is preferrable ZeroMQ. The message payload is the same in both protocols.</p>
+<p>The communication is based on the Publish - Subscribe classic pattern. 
+The Senders of messages, called publishers (in our case, we can call it "MuseBox Client"), do not program the messages to be sent directly to specific receivers, called subscribers. Messages are published without the knowledge of what or if any subscriber of that knowledge exists.</p>
+<p>When MuseBox starts, it exposes its communication socket as a Subscriber. When it receives a message from a MuseBox Client, it responds to the Publisher at the socket that the MuseBox Client exposes. In order to do that, the MuseBox Client sends to the MuseBox Server in the message the address where it expects to receive the answer.
+The payload of the message is in JSON format.</p>
+<p>Let's see this example:</p>
+<ul>
+<li>A MuseBox Client sends this message to the MuseBox Server:</li>
+</ul>
+<pre><code>{
+    &quot;topic&quot;: &quot;FaceDetection&quot;,
+    &quot;image&quot;: [...],
+    &quot;publisherQueue&quot;: &quot;tcp://*:5000&quot;
+}
+</code></pre>
+<ul>
+<li>
+<p>the MuseBox Server receives the message. If the selected protocol is zeromq, according to the field "publisherQueue" will open a socket to the address <code>tcp://*:5000</code> and will send the response there.</p>
+</li>
+<li>
+<p>the MuseBox Server sends the reponse to the MuseBox Client: </p>
+</li>
+</ul>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;face_BB&quot;:
+                    {
+                        &quot;height&quot;:62,
+                        &quot;width&quot;:51,
+                        &quot;x&quot;:262,
+                        &quot;y&quot;:97
+                    }
+            }
+        ],
+    &quot;publisherQueue&quot;:&quot;tcp://*:5000&quot;,
+    &quot;status&quot;:&quot;success&quot;,
+    &quot;topic&quot;: &quot;FaceDetection&quot;
+}
+</code></pre>
+<p><strong>NB</strong>: in this documentation, the optional parameters will be written with this syntax:
+<code>parameter?: &lt;value&gt;</code></p>
+<hr />
+<hr />
+<h2 id="apis">APIs</h2>
+<p>The MuseBox Server listens in localhost (127.0.0.1) and in any IP (0.0.0.0) at port 9696.</p>
+<p>In WebSocket binding, the client simply must open a connection to <code>127.0.0.1:9696</code>, otherwise if the client is extern to the board, the connection string depends on the board's IP. For example, if the board has the IP <code>192.168.1.5</code>, the connection string is <code>192.168.1.5:9696</code>.
+In ZMQ socket binding, the Client will bind at this address for sending data to MuseBox Server: <code>tcp://*:9696</code></p>
+<p>All the APIs are in JSON format, and have the same structure. The structure is the following:</p>
+<pre><code>{
+    &quot;topic&quot;: &lt;string&gt;,
+    &quot;only_face&quot;: &lt;bool&gt;,
+    &quot;image&quot;/&quot;input: &lt;base64 image&gt;/double array,
+    &quot;publisherQueue&quot;: &lt;string&gt;
+}
+</code></pre>
+<p>Where:</p>
+<ul>
+<li>"topic" is the name of the Machine Learning task</li>
+<li>"image" is the OpenCV image in base64 format (string encoded in UTF8)</li>
+<li>"publisherQueue" is the address where the Client expects to receive the response</li>
+<li>"only_face" (optional) if you want to execute only the selected task and not the dependent tasks. For example: if you want to execute the face recognition task, you need to execute before that the face detection for extracting the sub-image that contains the face of the person that you want to recognize; with <code>only_face: true</code> you are sure that the passed image contains only the cropped face, meanwhile without the field <code>only_face</code>, MuseBox Server executes face detection and face recognition.</li>
+</ul>
+<p>The MuseBox server response structure is the following:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;&lt;topic&gt;_BB&quot;:
+                    {
+                        &quot;height&quot;: &lt;int&gt;,
+                        &quot;width&quot;: &lt;int&gt;,
+                        &quot;x&quot;: &lt;int&gt;,
+                        &quot;y&quot;: &lt;int&gt;
+                    }
+            }
+        ],
+    &quot;publisherQueue&quot;: &lt;string&gt;,
+    &quot;status&quot;: &lt;string&gt;,
+    &quot;topic&quot;: &lt;string&gt;
+}
+</code></pre>
+<p>Where:</p>
+<ul>
+<li>
+<p>"publisherQueue" is the same string that the Client sent previously</p>
+</li>
+<li>
+<p>"status" is the status of the request (success / error)</p>
+</li>
+<li>
+<p>"topic" is the requested inference task</p>
+</li>
+<li>
+<p>"data" is the inference result in JSON Array, where:</p>
+</li>
+<li>
+<p>"\<topic>_BB" is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)</p>
+</li>
+</ul>
+<p>NB: if the selected task has dependent tasks (e.g. Face Recognition requires Face Detection) and you have not setted <code>only_face: true</code>, the field "data" contains all the dependent task executed.
+For example, Face Recognition without <code>only_face: true</code>:</p>
+<pre><code>{
+    &quot;data&quot;: {
+        &quot;FaceDetection&quot;: {
+            &quot;data&quot;: [
+                {
+                    &quot;face_BB&quot;: {
+                        &quot;height&quot;: 71,
+                        &quot;width&quot;: 65,
+                        &quot;x&quot;: 292,
+                        &quot;y&quot;: 56
+                    }
+                }
+            ],
+            &quot;status&quot;: &quot;success&quot;,
+            &quot;topic&quot;: &quot;FaceDetection&quot;
+        },
+        &quot;FaceRecognition&quot;: [
+            {
+                &quot;clientId&quot;: &quot;1&quot;,
+                &quot;personFound&quot;: &quot;unknown&quot;,
+                &quot;status&quot;: &quot;success&quot;,
+                &quot;topic&quot;: &quot;FaceRecognition&quot;
+            }
+        ]
+    }
+}
+</code></pre>
+<hr />
+<h3 id="face-analysis">Face Analysis</h3>
+<h4 id="face-detection"><strong>Face detection</strong></h4>
+<p>It detects the faces in a scene up to 32×32 pixel.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;FaceDetection&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;face_BB&quot;:
+                    {
+                        &quot;height&quot;: &lt;int&gt;,
+                        &quot;width&quot;: &lt;int&gt;,
+                        &quot;x&quot;: &lt;int&gt;,
+                        &quot;y&quot;: &lt;int&gt;
+                    }
+            }
+        ],
+}
+</code></pre>
+<ul>
+<li>face_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)</li>
+</ul>
+<h4 id="face-landmarking"><strong>Face landmarking</strong></h4>
+<p>Given a face bounding box, it extracts the 98 relevant points of a face. </p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;FaceLandmark&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+&quot;only_face&quot;?: true
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;landmarks&quot;: [196 int]
+            }
+        ]
+}
+</code></pre>
+<ul>
+<li>landmarks corresponds to (x,y) couples for face landmark points</li>
+</ul>
+<h4 id="face-recognition"><strong>Face recognition</strong></h4>
+<p>Given a face bounding box and a database of faces, it recognizes a face in a scene.</p>
+<p>You need to populate the directory <code>/usr/local/bin/database/people</code> with the photos of the desired people.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;FaceRecognition&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+&quot;only_face&quot;?: true
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;personFound&quot;: &lt;string&gt;
+            }
+        ]
+}
+</code></pre>
+<ul>
+<li>personFound corresponds to the name of the person</li>
+</ul>
+<h4 id="glasses-detection"><strong>Glasses detection</strong></h4>
+<p>Given a face bounding box, it detects whether a person is wearing glasses or not.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;GlassesDetection&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+&quot;only_face&quot;?: true
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;glasses&quot;: &quot;glasses&quot;/&quot;no glasses&quot;
+            }
+        ]
+}
+</code></pre>
+<ul>
+<li>glasses is the result of inference (glasses / no glasses)</li>
+</ul>
+<h4 id="age-detection"><strong>Age Detection</strong></h4>
+<p>Given a face bounding box, it determines the age of a person.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;AgeDetection&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+&quot;only_face&quot;?: true
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;age&quot;: &lt;int&gt;
+            }
+        ]
+}
+</code></pre>
+<ul>
+<li>age corresponds to the age in an integer number between 0 - 100</li>
+</ul>
+<h4 id="gender-detection"><strong>Gender Detection</strong></h4>
+<p>Given a face bounding box, it determines if the person is female or male.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;GenderDetection&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+&quot;only_face&quot;?: true
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;gender&quot;: &quot;man&quot;/&quot;woman&quot;
+            }
+        ]
+}
+</code></pre>
+<ul>
+<li>gender corresponds to the gender of the person (man or woman)</li>
+</ul>
+<hr />
+<h4 id="emotion-recognition"><strong>Emotion Recognition</strong></h4>
+<p>Given a face bounding box, it determines the facial expression/emotion of the person.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;EmotionRecognition&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+&quot;only_face&quot;?: true
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;emotion&quot;: &quot;angry&quot;/&quot;disgust&quot;/&quot;fear&quot;/&quot;happy&quot;/&quot;sad&quot;/&quot;surprise&quot;/&quot;neutral&quot;
+            }
+        ]
+}
+</code></pre>
+<ul>
+<li>emotion corresponds to the facial emotion of the person</li>
+</ul>
+<hr />
+<h3 id="people-analysis">People Analysis</h3>
+<h4 id="people-detection"><strong>People detection</strong></h4>
+<p>It detects the people in a scene up to 64×64 pixel.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;PeopleDetection&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;person_BB&quot;:
+                    {
+                        &quot;height&quot;: &lt;int&gt;,
+                        &quot;width&quot;: &lt;int&gt;,
+                        &quot;x&quot;: &lt;int&gt;,
+                        &quot;y&quot;: &lt;int&gt;
+                    }
+            }
+        ],
+}
+</code></pre>
+<ul>
+<li>people_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)</li>
+</ul>
+<h4 id="human-segmentation"><strong>Human Segmentation</strong></h4>
+<p>It segments the people present in a scene</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;HumanSegmentation&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;image&quot;:[ 320x320 double]
+            }
+        ],
+}
+</code></pre>
+<ul>
+<li>image is an array of doubles that creates the mask to be applied on top of the original image </li>
+</ul>
+<hr />
+<h4 id="image-portrait"><strong>Image Portrait</strong></h4>
+<p>It draws a black and white portrait of the people in the image.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;ImagePortrait&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;image&quot;:[ 512x512 double]
+            }
+        ],
+}
+</code></pre>
+<ul>
+<li>image is an array of doubles that creates a black and white portrait image</li>
+</ul>
+<hr />
+<h3 id="object-analysis"><strong>Object Analysis</strong></h3>
+<h4 id="object-detection"><strong>Object detection</strong></h4>
+<p>It detects the objects in a scene up to 64×64 pixel.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;ObjectDetection&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;object_BB&quot;:
+                    {
+                        &quot;height&quot;: &lt;int&gt;,
+                        &quot;width&quot;: &lt;int&gt;,
+                        &quot;x&quot;: &lt;int&gt;,
+                        &quot;y&quot;: &lt;int&gt;
+                    }
+            }
+        ],
+}
+</code></pre>
+<ul>
+<li>object_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)</li>
+</ul>
+<h4 id="logo-detection"><strong>Logo detection</strong></h4>
+<p>It detects the objects in a scene up to 64×64 pixel.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;LogoDetection&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;logo_BB&quot;:
+                    {
+                        &quot;height&quot;: &lt;int&gt;,
+                        &quot;width&quot;: &lt;int&gt;,
+                        &quot;x&quot;: &lt;int&gt;,
+                        &quot;y&quot;: &lt;int&gt;
+                    }
+            }
+        ],
+}
+</code></pre>
+<ul>
+<li>object_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)</li>
+</ul>
+<h4 id="logo-recognition"><strong>Logo Recognition</strong></h4>
+<p>Given a logo bounding box, it determines the brand name.</p>
+<p>You need to populate the directory <code>/usr/local/bin/database/logos</code> with the photos of the desired logos.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;LogoRecognition&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+&quot;only_face&quot;?: true
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;logoFound&quot;: &lt;string&gt;
+            }
+        ]
+}
+</code></pre>
+<ul>
+<li>logoFound corresponds to the name of the logo</li>
+</ul>
+<hr />
+<h4 id="text-detection"><strong>Text Detection</strong></h4>
+<p>Given an image, it detects the texts inside of it.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;TextDetection&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            &quot;text_BB&quot;:
+                    {
+                        &quot;height&quot;: &lt;int&gt;,
+                        &quot;width&quot;: &lt;int&gt;,
+                        &quot;x&quot;: &lt;int&gt;,
+                        &quot;y&quot;: &lt;int&gt;
+                    }
+        ]
+}
+</code></pre>
+<ul>
+<li>text_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)</li>
+</ul>
+<hr />
+<h4 id="monocular-depth"><strong>Monocular Depth</strong></h4>
+<p>Given an image in input, it returns its depth estimation.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;MonoDepth&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;image&quot;:[ 128x128 double]
+            }
+        ],
+}
+</code></pre>
+<ul>
+<li>image is an array of doubles that represents the depth estimation of the input</li>
+</ul>
+<hr />
+<h4 id="monocular-depth-2"><strong>Monocular Depth #2</strong></h4>
+<p>Given an image in input, it returns its depth estimation.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;MonoDepth2&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;image&quot;:[ 192x640 double]
+            }
+        ],
+}
+</code></pre>
+<ul>
+<li>image is an array of doubles that represents the depth estimation of the input</li>
+</ul>
+<hr />
+<h4 id="stochastic-difference"><strong>Stochastic Difference</strong></h4>
+<p>Given two images in input, it returns how similiar those images are.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;StochasticDifference&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+&quot;image2&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            {
+                &quot;result&quot;: double
+            }
+        ],
+}
+</code></pre>
+<ul>
+<li>result is a double which value is a number from [0.0 - 1.0] describing how similiar the images in input are</li>
+</ul>
+<hr />
+<h3 id="medical-analysis"><strong>Medical Analysis</strong></h3>
+<h4 id="medical-detection"><strong>Medical Detection</strong></h4>
+<p>Given an endoscopic image, it detects anything suspicious in it.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;MedicalDetection&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            &quot;medical_BB&quot;:
+                    {
+                        &quot;height&quot;: &lt;int&gt;,
+                        &quot;width&quot;: &lt;int&gt;,
+                        &quot;x&quot;: &lt;int&gt;,
+                        &quot;y&quot;: &lt;int&gt;
+                    }
+        ]
+}
+</code></pre>
+<ul>
+<li>medical_BB is the bounding boxes of the task, according to OpenCV format (from top-left to bottom-right)</li>
+</ul>
+<hr />
+<h4 id="medical-segmentation"><strong>Medical Segmentation</strong></h4>
+<p>Given an endoscopic image, it segments anything suspicious in it.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;MedicalSegmentation&quot;
+&quot;image&quot;: &quot;base64 image&quot;
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            &quot;countour&quot;:
+                    {
+                        &quot;Point&quot;: {
+                            &quot;x&quot;: &lt;int&gt;,
+                            &quot;y&quot;: &lt;int&gt;
+                        }
+                    }
+        ]
+}
+</code></pre>
+<ul>
+<li>data contains all the points of the countours of the task, according to OpenCV format (Point: x, y)</li>
+</ul>
+<hr />
+<h3 id="audio-analysis"><strong>Audio Analysis</strong></h3>
+<h4 id="zero-crossing-rate"><strong>Zero Crossing Rate</strong></h4>
+<p>Given a double array in input, it measures how many times the waveform crosses the zero axis.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;ZeroCrossingRate&quot;
+&quot;input&quot;: [4410 double]
+
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            &quot;result&quot;: [double, double]
+        ]
+}
+</code></pre>
+<ul>
+<li>the first element of result is the number of times that the waveform crosses the zero axis, meanwhile the second one is the rate of the number of times that the waveform crosses the zero axis</li>
+</ul>
+<hr />
+<h4 id="signal-energy"><strong>Signal Energy</strong></h4>
+<p>Given a double array in input, it returns the total magnitude of the signal.
+For audio signals, that roughly corresponds to how loud the signal is.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;SignalEnergy&quot;
+&quot;input&quot;: [4410 double]
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            &quot;result&quot;: double
+        ]
+}
+</code></pre>
+<ul>
+<li>result is a double representing the total magnitude of the signal</li>
+</ul>
+<hr />
+<h4 id="fft"><strong>FFT</strong></h4>
+<p>Given a double array in input, it returns the FFT of the input.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;FFT&quot;
+&quot;input&quot;: [2048 double]
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            &quot;result&quot;: [ 2048 double]
+        ]
+}
+</code></pre>
+<ul>
+<li>result is the number of the given FFT of the input</li>
+</ul>
+<hr />
+<h4 id="stft"><strong>STFT</strong></h4>
+<p>Given a double array in input, it returns the STFT of the input.</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;STFT&quot;
+&quot;input&quot;: [2048 double]
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            &quot;result&quot;: [ 2048 double]
+        ]
+}
+</code></pre>
+<ul>
+<li>result is the number of the given STFT of the input</li>
+</ul>
+<hr />
+<h4 id="mono-audio-to-midi"><strong>Mono Audio to Midi</strong></h4>
+<p>Given a double array in input, it returns the corresponding note in midi notation (from A0 to B0 of a monophonic audio, for example, if you pass to the function a sine wave of 440hz, the function returns A3).</p>
+<p>Request from Client:</p>
+<pre><code>&quot;topic&quot;: &quot;Monoaudio2Midi&quot;
+&quot;input&quot;: [5512 double]
+</code></pre>
+<p>Response from Server:</p>
+<pre><code>{
+    &quot;data&quot;:
+        [
+            &quot;result&quot;: [string, string]
+        ]
+}
+</code></pre>
+<ul>
+<li>the result is the corresponding note in midi notation of the input</li>
+</ul>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cpp/" class="btn btn-neutral float-right" title="Example C++">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../setup/" class="btn btn-neutral" title="Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../setup/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../cpp/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+      <script src="../../js/version-select.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
