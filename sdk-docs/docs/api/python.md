@@ -1,7 +1,6 @@
 # Python Example
 
-The Python example is available on Github:
-https://github.com/MakarenaLabs/MuseBox-client-examples/tree/main/Python
+The Python example is available on [Github](https://github.com/MakarenaLabs/MuseBox-client-examples/tree/main/Python).
 
 There are 3 example:
 

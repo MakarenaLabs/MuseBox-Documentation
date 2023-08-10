@@ -1,7 +1,6 @@
 # C++ Example
 
-The C++ example is available on Github:
-https://github.com/MakarenaLabs/MuseBox-client-examples/tree/main/Cpp
+The C++ example is available on [Github](https://github.com/MakarenaLabs/MuseBox-client-examples/tree/main/Cpp).
 
 You can build the example directly on the board with this command:
 
